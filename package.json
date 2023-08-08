@@ -6,8 +6,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "googleapis": "^123.0.0",
     "next": "latest",
+    "nextjs-progressbar": "^0.0.16",
     "react": "18.2.0",
+    "react-data-table-component": "^7.5.3",
     "react-dom": "18.2.0"
   }
 }
