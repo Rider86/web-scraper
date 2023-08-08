@@ -16,7 +16,7 @@ export const getServerSideProps = async () => {
   const range = `remedium!A1:A1000`;
 
   const response = await sheets.spreadsheets.values.get({
-    spreadsheetId: process.env.SHEET_ID,
+    spreadsheetId: process.env.NEXT_PUBLIC_SHEET_ID,
     range,
   });
 
