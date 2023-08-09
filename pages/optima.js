@@ -7,10 +7,21 @@ import { google } from 'googleapis';
 const axios = require('axios');
 const cheerio = require('cheerio');
 
+export const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 
 export const getServerSideProps = async () => {
-  const auth = await google.auth.getClient({ scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'] });
-
+  const { privateKey } = JSON.parse(process.env.GOOGLE_PRIVATE_KEY || { privateKey: null })
+  const auth = new google.auth.GoogleAuth({
+    scopes: SCOPES,
+    projectId: process.env.GOOGLE_PROJECTID,
+    credentials: {
+      private_key: privateKey,
+      client_email: process.env.GOOGLE_CLIENT_EMAIL,
+    },
+   
+  }
+ 
+  ) 
   const sheets = google.sheets({ version: 'v4', auth });
  
   const range = `optima!A1:A1000`;
