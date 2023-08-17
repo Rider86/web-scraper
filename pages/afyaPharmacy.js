@@ -52,7 +52,7 @@ export const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
            
           return {
             success: true,
-            data: { title, price, promoPrice: oldPrice ? promoPrice : '', URL }
+            data: { title, price, promoPrice: oldPrice ? promoPrice : '', URL, all: false }
           };
         })
       

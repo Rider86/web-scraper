@@ -52,7 +52,7 @@ export const getServerSideProps = async () => {
         
         return {
           success: true,
-          data: { title, price, promoPrice: oldPrice ? promoPrice : '', URL }
+          data: { title, price, promoPrice: oldPrice ? promoPrice : '', URL, all: false }
         };
       })
     

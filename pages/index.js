@@ -12,6 +12,11 @@ export default function Home() {
       </Head>
       <NextNProgress />
       <Navbar />
+      <div className={styles.manageLinks}>
+        <div><h1>Manage links: </h1>
+          <a href={'https://docs.google.com/spreadsheets/d/1Tn5-6f6aZlGAn1uZbPmCeA3vRpT-WG1qp2MfRRjob4I/edit?usp=drive_web&ouid=116090750770521771462'} target='_blank'>https://docs.google.com/spreadsheets</a>
+        </div>
+      </div>
    </div>
   )
 }

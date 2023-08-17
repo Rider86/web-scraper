@@ -50,7 +50,7 @@ export const getServerSideProps = async () => {
      
         return {
           success: true,
-          data: { title, price, promoPrice, URL }
+          data: { title, price, promoPrice, URL, all:false }
         };
       })
     

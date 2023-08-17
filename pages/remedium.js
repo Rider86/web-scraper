@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Pharmacy from '../components/Pharmacy';
 import NextNProgress from 'nextjs-progressbar';
 import { google } from 'googleapis';
+import Export from '../components/Export';
 
 const axios = require('axios');
 const cheerio = require('cheerio');
@@ -52,7 +53,7 @@ export const getServerSideProps = async () => {
         const price = currentPrice ? currentPrice : oldPrice;
         return {
           success: true,
-          data: { title, price, promoPrice, URL }
+          data: { title, price, promoPrice, URL, all:false }
         };
       })
     
@@ -75,7 +76,7 @@ return (
   <div>
      <NextNProgress />
      <Navbar/>
-      <Pharmacy data={ data} />
+     <Pharmacy data={data} />
   </div>
 )
 }

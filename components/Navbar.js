@@ -6,8 +6,9 @@ import styles from '../styles/Home.module.css';
 
 const MENU_LIST = [
   { text: "Home", href: "/" },
+  { text: "All", href: "/all" },
   { text: "AFYA PHARMACY", href:"/afyaPharmacy" },
-  { text: "366 PHARMACY", href: "/threeSixSixPharmacy" },
+  { text: "36.6 PHARMACY", href: "/threeSixSixPharmacy" },
   { text: "REMEDIUM", href:"/remedium" },
   { text: "OPTIMA", href:"/optima" },
 ];

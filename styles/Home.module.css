@@ -112,3 +112,22 @@
   color: black;
   font-size: 1.2rem;
 }
+
+.promoPrice{
+  text-decoration: none;
+  color: red;
+  font-size: 1.2rem;
+}
+
+.manageLinks{
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.exportBtn{
+  margin: 20px 0 0 20px;
+  background-color: lightgreen;
+  cursor: pointer;
+  font-weight: bold;
+}
