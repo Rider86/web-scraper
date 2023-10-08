@@ -24,7 +24,6 @@
 }
 .nav{
   display: flex;
-  padding: 16px;
   margin-top: -10px;
   justify-content: space-between;
   align-items: center;
@@ -60,7 +59,7 @@
   right: 0;
 }
 .nav__link{
-  font-size: 18px; 
+  font-size: 14px; 
   position: relative;
   transition: all 0.2s;
 }
@@ -110,7 +109,27 @@
 .p, .title{
   text-decoration: none;
   color: black;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.all{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid gray;
+  margin: 0;
+  height: 30px;
+}
+
+.priceAll{
+  padding-top: 6px;
+  min-width: 55px; 
+  text-align: center;
+}
+
+.promoPriceAll{
+  padding-top: 6px;
+  background-color: lightcoral;
+  text-align: center;
 }
 
 .promoPrice{

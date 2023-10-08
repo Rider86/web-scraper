@@ -7,10 +7,16 @@ import styles from '../styles/Home.module.css';
 const MENU_LIST = [
   { text: "Home", href: "/" },
   { text: "All", href: "/all" },
-  { text: "AFYA PHARMACY", href:"/afyaPharmacy" },
+  { text: "AFYA PHARMACY", href: "/afyaPharmacy" },
+  { text: "GALEN", href: "/galen" },
+  { text: "EPHARM", href: "/epharm" },
+  { text: "FACTORS.BG", href: "/factors" },
+  { text: "REDAPPLE", href: "/redapple" },
+  { text: "MYPHARMACY", href: "/mypharmacy" },
   { text: "36.6 PHARMACY", href: "/threeSixSixPharmacy" },
   { text: "REMEDIUM", href:"/remedium" },
-  { text: "OPTIMA", href:"/optima" },
+  { text: "OPTIMA", href: "/optima" },
+  { text: "MEDEA", href: "/medea" },
 ];
 const Navbar = () => {
   
@@ -21,7 +27,7 @@ const Navbar = () => {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <Link className={styles.heading} href="/">
-          <h1 className={styles.heading}>Price checker</h1>
+          <h3 className={styles.heading}>Price checker</h3>
         </Link>
         <div
           onClick={() => setNavActive(!navActive)}

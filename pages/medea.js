@@ -24,7 +24,7 @@ export const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
   )  
     const sheets = google.sheets({ version: 'v4', auth });
    
-    const range = `afya!A1:A1000`;
+    const range = `medea!A1:A1000`;
   
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: process.env.NEXT_PUBLIC_SHEET_ID,
@@ -32,43 +32,47 @@ export const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
     });
   
     const urlData = response?.data?.values;
-  
-    function fetchData(URL) {
+
+   function fetchData(URL) {
       return axios
-        .get(URL)
-        .then(function (response) {
-              const html = response.data;
-    
+        .get(URL, {
+          headers: {
+              "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+              "User-Agent": "Mozilla/5.0 Chrome/51.0.2704.103",
+          },
+      })
+        .then((response) => {
+          const html = response.data;
           const $ = cheerio.load(html);
             
           const title = $('h1', html).text();
            
             
-            const currentPrice = $('.singleProduct .currPrice', html).text();
-            const oldPrice = $('.singleProduct .productPrice .oldPrice', html).text();
-            const promoPrice =  $('.singleProduct .productPrice .currPrice', html).text();
+            const currentPrice = $('.price-box .price', html).text();
+            const oldPrice = $('.price-box .old-price .price', html).text();
+            const promoPrice =  $('.price-box .special-price .price', html).text();
            
             const price = oldPrice ? oldPrice : currentPrice;
-           
+        
           return {
             success: true,
-            data: { title, price, promoPrice: oldPrice ? promoPrice : '', URL, all: false }
+            data: { title, price, promoPrice, URL, all: false }
           };
         })
       
     }
   
       const responses = await Promise.allSettled(urlData?.map(fetchData));
-      
+  
       return {
       props: {
-       data: JSON.parse(JSON.stringify(responses))
+        data: JSON.parse(JSON.stringify(responses))
       },
     
     };
   
   }
-export default function AfyaPharmacy({ data }) {
+export default function Medea({ data }) {
 
     
       return (

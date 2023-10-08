@@ -63,7 +63,7 @@ export const getServerSideProps = async () => {
     
     return {
     props: {
-     data: responses
+      data: JSON.parse(JSON.stringify(responses))
     },
   
   };

@@ -3,7 +3,8 @@ import styles from '../styles/Home.module.css';
 import Export from './Export';
 
 
-const Pharmacy = ({data}) => {
+const Pharmacy = ({ data }) => {
+  
     const columns = [
         {
             name: 'Name',

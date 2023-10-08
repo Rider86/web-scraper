@@ -44,13 +44,13 @@ export const getServerSideProps = async () => {
         const title = $('h1', html).text();
         const currentPrice = $('.product-price', html).text();
         const oldPrice = $('.product-old-price', html).text();
-        const promoPrice = currentPrice ? '' : $('.product-promo', html).text();
+        const promoPrice = currentPrice ? '' : $('.product-promo', html).text().trim();
        
-        const price = currentPrice ? currentPrice : oldPrice;
-     
+        const price = currentPrice ? currentPrice.trim() : oldPrice.trim();
+    
         return {
           success: true,
-          data: { title, price, promoPrice, URL, all:false }
+          data: { title, price, promoPrice, URL, all: false }
         };
       })
     
@@ -60,7 +60,7 @@ export const getServerSideProps = async () => {
     
     return {
     props: {
-     data: responses
+      data: JSON.parse(JSON.stringify(responses))
     },
   
   };

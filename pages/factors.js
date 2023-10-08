@@ -24,7 +24,7 @@ export const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
   )  
     const sheets = google.sheets({ version: 'v4', auth });
    
-    const range = `afya!A1:A1000`;
+    const range = `factors.bg!A1:A1000`;
   
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: process.env.NEXT_PUBLIC_SHEET_ID,
@@ -44,15 +44,15 @@ export const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
           const title = $('h1', html).text();
            
             
-            const currentPrice = $('.singleProduct .currPrice', html).text();
-            const oldPrice = $('.singleProduct .productPrice .oldPrice', html).text();
-            const promoPrice =  $('.singleProduct .productPrice .currPrice', html).text();
+            const currentPrice = $('.ty-product-prices .ty-price-num', html).text();
+            const oldPrice = $('.ty-product-prices .ty-strike', html).text();
+            const promoPrice = currentPrice ? '' : $('.ty-product-prices .ty-price-num', html).text().trim() ;
            
-            const price = oldPrice ? oldPrice : currentPrice;
-           
+            const price = currentPrice ? currentPrice : oldPrice;
+        
           return {
             success: true,
-            data: { title, price, promoPrice: oldPrice ? promoPrice : '', URL, all: false }
+            data: { title, price, promoPrice, URL, all: false }
           };
         })
       
@@ -62,13 +62,13 @@ export const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
       
       return {
       props: {
-       data: JSON.parse(JSON.stringify(responses))
+        data: JSON.parse(JSON.stringify(responses))
       },
     
     };
   
   }
-export default function AfyaPharmacy({ data }) {
+export default function Factors({ data }) {
 
     
       return (
