@@ -45,10 +45,10 @@ export const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
            
             
             const currentPrice = $('.product-info-price .price', html).text();
-            const oldPrice = $('.product-info-price .old-price .price', html).text();
-            const promoPrice = currentPrice ? '' : $('.product-info-price .special-price .price', html).text();
+            const oldPrice = $('.product-info-price .old-price', html).text();
+            const promoPrice = $('.product-info-price .special-price .price-wrapper .price', html).text();;
            
-            const price = currentPrice ? currentPrice : oldPrice;
+            const price = oldPrice ? oldPrice : currentPrice.trim();
            
           return {
             success: true,

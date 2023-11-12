@@ -41,14 +41,14 @@ export const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
     
           const $ = cheerio.load(html);
             
-          const title = $('h1', html).text();
+          const title = $('.product-details-clear h1', html).text();
            
             
             const currentPrice = $('.ty-product-prices .ty-price-num', html).text();
             const oldPrice = $('.ty-product-prices .ty-strike', html).text();
-            const promoPrice = currentPrice ? '' : $('.ty-product-prices .ty-price-num', html).text().trim();
+            const promoPrice = oldPrice ? currentPrice : oldPrice;
            
-            const price = currentPrice ? currentPrice : oldPrice.trim();
+            const price = oldPrice ? oldPrice : currentPrice.trim();
 
           return {
             success: true,

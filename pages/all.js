@@ -129,35 +129,36 @@ const result = row?.map((url)=>    axios
     if (url?.includes('epharm')) {
       
       const currentPrice = $('.product-info-price .price', html).text();
-      const oldPrice = $('.product-info-price .old-price .price', html).text();
-      const promoPrice = currentPrice ? '' : $('.product-info-price .special-price .price', html).text();
-           
-            const price = currentPrice ? currentPrice : oldPrice;
+      const oldPrice = $('.product-info-price .old-price', html).text();
+      const promoPrice = $('.product-info-price .special-price .price-wrapper .price', html).text();;
+     
+      const price = oldPrice ? oldPrice : currentPrice.trim();
+
       newDataEpharm = {  title, price, promoPrice, URL, all: true}
  
     };
     
     if (url?.includes('factors')) {
-      
+      const factorsTitle = $('.product-details-clear h1', html).text();
       const currentPrice = $('.ty-product-prices .ty-price-num', html).text();
       const oldPrice = $('.ty-product-prices .ty-strike', html).text();
       const promoPrice = currentPrice ? '' : $('.ty-product-prices .ty-price-num', html).text().trim() ;
      
       const price = currentPrice ? currentPrice : oldPrice;
-      newDataFactors = { title, price, promoPrice, URL, all: true }
+      newDataFactors = { title: factorsTitle, price, promoPrice, URL, all: true }
  
     };
     
     if (url?.includes('redapple')) {
       
-          
+      const redAppleTitle = $('.product-details-clear h1', html).text();
       const currentPrice = $('.ty-product-prices .ty-price-num', html).text();
       const oldPrice = $('.ty-product-prices .ty-strike', html).text();
-      const promoPrice = currentPrice ? '' : $('.ty-product-prices .ty-price-num', html).text().trim();
+      const promoPrice = oldPrice ? currentPrice : oldPrice;
      
-      const price = currentPrice ? currentPrice : oldPrice.trim();
+      const price = oldPrice ? oldPrice : currentPrice.trim();
    
-      newDataRedApple = { title, price, promoPrice, URL, all: true }
+      newDataRedApple = { title: redAppleTitle, price, promoPrice, URL, all: true }
  
     };
     
